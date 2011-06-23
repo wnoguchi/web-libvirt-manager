@@ -1,7 +1,30 @@
 <h1>Virsh#index</h1>
 <p>Find me in app/views/virsh/index.html.erb</p>
-<pre>
-<% @domain_list.each do |domain| -%>
-  <%= domain %>
-<% end %>
-</pre>
+
+<table>
+  <thead>
+    <tr>
+      <th>ID</th>
+      <th>ドメイン名</th>
+      <th>状態</th>
+      <th>操作</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @domain_list.each do |domain| -%>
+      <tr>
+	<td><%= domain[:id] %></td>
+	<td><%= domain[:domain_name] %></td>
+	<td><%= domain[:status] %></td>
+	<td>
+	  <%= link_to 'start', domain_start_path(domain[:domain_name]) %> |
+	  <%= link_to 'suspend', domain_suspend_path(domain[:domain_name]) %> |
+	  <%= link_to 'resume', domain_resume_path(domain[:domain_name]) %> |
+	  <%= link_to 'reboot', domain_reboot_path(domain[:domain_name]) %> |
+	  <%= link_to 'shutdown', domain_shutdown_path(domain[:domain_name]) %>
+	</td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+

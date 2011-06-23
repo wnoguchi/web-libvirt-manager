@@ -6,7 +6,15 @@ class VirshController < ApplicationController
     @domain_list_str.each_line do |line|
       @count += 1
       next if @count <= 0
-      @domain_list << line.chomp
+      next if line.chomp.empty?
+#      @domain_list << line.chomp
+      line =~ /([\d-]+) +([\w_]+) +(.+)/
+      @domain_list << {
+        :id => $1,
+        :domain_name => $2,
+        :status => $3,
+      }
     end
+    logger.debug @domain_list.to_yaml
   end
 end

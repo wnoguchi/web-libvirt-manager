@@ -1,5 +1,10 @@
 WebLibvirtManager::Application.routes.draw do
-  get "virsh/index"
+  match "virsh(/)" => 'virsh#index'
+  match "virsh/start/:domain" => 'virsh#start', :as => :domain_start
+  match "virsh/suspend/:domain" => 'virsh#suspend', :as => :domain_suspend
+  match "virsh/resume/:domain" => 'virsh#resume', :as => :domain_resume
+  match "virsh/reboot/:domain" => 'virsh#reboot', :as => :domain_reboot
+  match "virsh/shutdown/:domain" => 'virsh#shutdown', :as => :domain_shutdown
 
   # The priority is based upon order of creation:
   # first created -> highest priority.
