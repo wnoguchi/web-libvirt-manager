@@ -17,4 +17,35 @@ class VirshController < ApplicationController
     end
     logger.debug @domain_list.to_yaml
   end
+
+  def start
+    domain = params[:domain]
+    `sudo virsh start #{domain}`
+    redirect_to :action => :index
+  end
+
+  def suspend
+    domain = params[:domain]
+    `sudo virsh suspend #{domain}`
+    redirect_to :action => :index
+  end
+
+  def resume
+    domain = params[:domain]
+    `sudo virsh resume #{domain}`
+    redirect_to :action => :index
+  end
+
+  def reboot
+    domain = params[:domain]
+    `sudo virsh reboot #{domain}`
+    redirect_to :action => :index
+  end
+
+  def shutdown
+    domain = params[:domain]
+    `sudo virsh shutdown #{domain}`
+    redirect_to :action => :index
+  end
+
 end
