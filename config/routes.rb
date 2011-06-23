@@ -1,4 +1,6 @@
 WebLibvirtManager::Application.routes.draw do
+  get "virsh/index"
+
   # The priority is based upon order of creation:
   # first created -> highest priority.
 

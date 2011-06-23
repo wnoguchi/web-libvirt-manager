@@ -12,7 +12,7 @@ development:
   database: web-libvirt-manager_development
   pool: 5
   username: root
-  password:
+  password: a5ha2gate
   host: localhost
 
 # Warning: The database defined as "test" will be erased and
@@ -25,7 +25,7 @@ test:
   database: web-libvirt-manager_test
   pool: 5
   username: root
-  password:
+  password: a5ha2gate
   host: localhost
 
 production:
@@ -35,5 +35,5 @@ production:
   database: web-libvirt-manager_production
   pool: 5
   username: root
-  password:
+  password: a5ha2gate
   host: localhost
