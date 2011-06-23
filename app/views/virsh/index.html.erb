@@ -1,5 +1,7 @@
 <h1>Virsh#index</h1>
 <p>Find me in app/views/virsh/index.html.erb</p>
 <pre>
-<%= @result %>
+<% @domain_list.each do |domain| -%>
+  <%= domain %>
+<% end %>
 </pre>
