@@ -6,6 +6,10 @@ WebLibvirtManager::Application.routes.draw do
   match "virsh/reboot/:domain" => 'virsh#reboot', :as => :domain_reboot
   match "virsh/shutdown/:domain" => 'virsh#shutdown', :as => :domain_shutdown
 
+  match "virsh/domstate/:domain" => 'virsh#domstate', :as => :domstate
+
+  match "virsh/clone" => 'virsh#clone'
+  
   # The priority is based upon order of creation:
   # first created -> highest priority.
 
@@ -55,7 +59,7 @@ WebLibvirtManager::Application.routes.draw do
 
   # You can have the root of your site routed with "root"
   # just remember to delete public/index.html.
-  # root :to => "welcome#index"
+  root :to => "virsh#index"
 
   # See how all your routes lay out with "rake routes"
 
